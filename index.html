@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LibraryApp</title>
+</head>
+<body>
+    <container class="container">
+        <header class="header">
+            <div>Header</div>
+        </header>
+        <sidebar class="sidebar">
+            <div>Sidebar</div>
+            <button class="btnAdd">New Book</button>
+        </sidebar>
+        <main class="main">
+            <div class="mainContent">Main</div>
+            <form action="" class="form">
+                <fieldset>
+                    <label for="author-name">Author</label>
+                    <input type="text" name="author-name" id="author-name">
+
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title">
+
+                    <label for="page-numbers">Number of Pages</label>
+                    <input type="number" name="page-numbers" id="page-numbers">
+
+                    <label for="read">Have you read the book?</label>
+                    <select name="read" id="read">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </fieldset>
+                <button type="submit" class="btnSubmit">Add Book</button>
+            </form>
+        </main>
+    </container>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
