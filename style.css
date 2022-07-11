@@ -22,8 +22,9 @@ html, body {
 
 .main {
     background-color: rgb(43, 43, 43);
+
     display: grid;
-    grid-template-columns: autofill, minmax(250px, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .sidebar {
@@ -33,3 +34,4 @@ html, body {
 form {
     display: none;
 }
+
