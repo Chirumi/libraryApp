@@ -5,6 +5,10 @@ const showBtn = document.getElementById("showBtn")
 const confirmBtn = document.getElementById("confirmBtn")
 const cancelBtn = document.getElementById("cancelBtn")
 const div = document.querySelector("dialog > div")
+const inputTitle = document.getElementById("title")
+const inputAuthor = document.getElementById("author")
+const inputPages = document.getElementById("pages")
+const read = document.getElementById("read")
 
 const myLibrary = []
 
@@ -59,6 +63,10 @@ dialog.addEventListener("click", () => {
 })
 div.addEventListener("click", (e) => {
     e.stopPropagation()
+})
+confirmBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log("chicken")
 })
 
 
