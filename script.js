@@ -1,5 +1,4 @@
 const gridContainer = document.getElementById("gridContainer")
-const newBook = document.getElementById("newBook")
 const dialog = document.querySelector("dialog")
 const showBtn = document.getElementById("showBtn")
 const confirmBtn = document.getElementById("confirmBtn")
@@ -8,7 +7,7 @@ const div = document.querySelector("dialog > div")
 const inputTitle = document.getElementById("title")
 const inputAuthor = document.getElementById("author")
 const inputPages = document.getElementById("pages")
-const read = document.getElementById("read")
+const inputRead = document.getElementById("read")
 
 const myLibrary = []
 
@@ -27,7 +26,7 @@ function addBookToLibrary(book) {
 }
 
 function createCard() {
-    for (let i = 0; i < myLibrary.length; i++) {
+    const lastArrayItem = myLibrary.length - 1
         const bookCard = document.createElement("div")
         bookCard.setAttribute("id", `bookCard`)
         const title = document.createElement("div")
@@ -45,11 +44,10 @@ function createCard() {
         bookCard.append(pages)
         bookCard.append(readStatus)
 
-        title.textContent = `Title: ${myLibrary[i].title}`
-        author.textContent = `Author: ${myLibrary[i].author}`
-        pages.textContent = `Pages: ${myLibrary[i].pages}`
-        readStatus.textContent = `Read: ${myLibrary[i].readStatus}`
-    }
+        title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
+        author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
+        pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
+        readStatus.textContent = `Read: ${myLibrary[lastArrayItem].readStatus}`
 }
 
 showBtn.addEventListener("click", () => {
@@ -65,16 +63,16 @@ div.addEventListener("click", (e) => {
     e.stopPropagation()
 })
 confirmBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    console.log("chicken")
+    e.preventDefault() // Prevent form from sending which reloads the page
+    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value)
+    addBookToLibrary(newBook)
+    createCard()
+
+    inputTitle.value = ""
+    inputAuthor.value = ""
+    inputPages.value = ""
+    inputRead.value= ""
+
+    dialog.close()
 })
 
-
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, "not read yet")
-addBookToLibrary(theHobbit)
-const warDoctor = new Book("War Doctor: Surgery on the Front Line", "David Nott", 363, "not read yet")
-addBookToLibrary(warDoctor)
-const goingInfinite = new Book("Going Infinite: The Rise and Fall of a New Tycoon", "Michael Lews", 267, "read")
-addBookToLibrary(goingInfinite)
-
-createCard()
