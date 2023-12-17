@@ -1,3 +1,5 @@
+// Only decrement values of datasets of the array object items AFTER the one being removed
+
 const gridContainer = document.getElementById("gridContainer")
 const dialog = document.querySelector("dialog")
 const showBtn = document.getElementById("showBtn")
@@ -27,27 +29,50 @@ function addBookToLibrary(book) {
 
 function createCard() {
     const lastArrayItem = myLibrary.length - 1
-        const bookCard = document.createElement("div")
-        bookCard.setAttribute("id", `bookCard`)
-        const title = document.createElement("div")
-        title.setAttribute("id", `title`)
-        const author = document.createElement("div")
-        author.setAttribute("id", `author`)
-        const pages = document.createElement("div")
-        pages.setAttribute("id", `pages`)
-        const readStatus = document.createElement("div")
-        readStatus.setAttribute("id", `readStatus`)
 
-        gridContainer.append(bookCard)
-        bookCard.append(title)
-        bookCard.append(author)
-        bookCard.append(pages)
-        bookCard.append(readStatus)
+    
+    const bookCard = document.createElement("div")
+    bookCard.setAttribute("id", `bookCard`)
+    bookCard.setAttribute("data-book", `${lastArrayItem}`) // Gives bookCard unique number
 
-        title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
-        author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
-        pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
-        readStatus.textContent = `Read: ${myLibrary[lastArrayItem].readStatus}`
+    const title = document.createElement("div")
+    title.setAttribute("id", `title`)
+    const author = document.createElement("div")
+    author.setAttribute("id", `author`)
+    const pages = document.createElement("div")
+    pages.setAttribute("id", `pages`)
+    const readStatus = document.createElement("div")
+    readStatus.setAttribute("id", `readStatus`)
+
+    const removeBtn = document.createElement("button")
+    removeBtn.textContent = "Remove"
+    removeBtn.addEventListener("click", () => {
+            bookCard.remove()
+
+            cards = document.querySelectorAll("#bookCard") // Selects divs with id bookCard
+            cards.forEach((e) => { // Only decrement dataset values that are more than the index position of the bookCard being removed from the array
+                if (e.dataset.book > bookCard.dataset.book) {
+                    e.dataset.book = e.dataset.book - 1
+                }
+            })
+
+            myLibrary.splice(bookCard.dataset.book, 1)
+            
+    })
+
+
+    gridContainer.append(bookCard)
+    bookCard.append(title)
+    bookCard.append(author)
+    bookCard.append(pages)
+    bookCard.append(readStatus)
+    bookCard.append(removeBtn)
+
+    title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
+    author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
+    pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
+    readStatus.textContent = `Read: ${myLibrary[lastArrayItem].readStatus}`
+
 }
 
 showBtn.addEventListener("click", () => {
@@ -64,6 +89,7 @@ div.addEventListener("click", (e) => {
 })
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault() // Prevent form from sending which reloads the page
+
     const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value)
     addBookToLibrary(newBook)
     createCard()
