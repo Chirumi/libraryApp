@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    border-style: none;
 }
 
 body {
@@ -55,6 +56,7 @@ body {
 .main {
     display: flex;
     flex-direction: column;
+    color: #212121;
     align-items: center;
     grid-area: main;
     padding: 50px 150px;
@@ -74,9 +76,13 @@ body {
     transition: 0.4s;
 }
 
-.footer {
-    grid-area: footer;
-    background-color: #fafafa;
+.dialogShow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    transform: 1s;
 }
 
 #gridContainer {
@@ -87,12 +93,29 @@ body {
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+
+dialog > div {
+    padding: 40px 80px;
 }
 
 input{
-    width: 200px;
+    all: unset;
+    font-size: 20px;
+    height: 40px;
+    width: 400px;
+}
+
+input:focus {
+    border-bottom: 1px solid #212121;
 }
 
 select {
     width: 46px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #fafafa;
 }

@@ -87,6 +87,7 @@ function createCard() {
 
 showBtn.addEventListener("click", () => {
     dialog.showModal()
+    dialog.setAttribute("class", "dialogShow")
 })
 cancelBtn.addEventListener("click", () => {
     dialog.close()
