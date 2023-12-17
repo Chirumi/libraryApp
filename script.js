@@ -1,5 +1,3 @@
-// Only decrement values of datasets of the array object items AFTER the one being removed
-
 const gridContainer = document.getElementById("gridContainer")
 const dialog = document.querySelector("dialog")
 const showBtn = document.getElementById("showBtn")
