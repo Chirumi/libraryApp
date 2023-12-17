@@ -8,30 +8,34 @@
     <title>Library</title>
 </head>
 <body>
-    <div id="gridContainer"></div>
-    <button id="showBtn">Add book</button>
-    <dialog>
-        <div>
-            <form action="">
-                <label for="title">Title:</label>
-                <input type="text" name="title" id="title">
-                <label for="author">Author:</label>
-                <input type="text" name="author" id="author">
-                <label for="pages">Pages:</label>
-                <input type="number" name="pages" id="pages">
-            
-                <select name="readStatus" id="read">
-                    <div>Have you finished reading the book?</div>
-                    <option value="default"> </option>
-                    <option value="Unfinished">Unfinished</option>
-                    <option value="Finished">Finished</option>
-                </select>
-                <div class="buttons">
-                    <button id="confirmBtn">Confirm</button>
-                    <button id="cancelBtn">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </dialog>
+    <div class="header">HEADER</div>
+    <div class="main">
+        <div id="gridContainer"></div>
+        <button id="showBtn">+</button>
+        <dialog>
+            <div>
+                <form action="">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">
+                    <label for="pages">Pages:</label>
+                    <input type="number" name="pages" id="pages">
+        
+                    <select name="readStatus" id="read">
+                        <div>Have you finished reading the book?</div>
+                        <option value="default"> </option>
+                        <option value="Unfinished">Unfinished</option>
+                        <option value="Finished">Finished</option>
+                    </select>
+                    <div class="buttons">
+                        <button id="confirmBtn">Confirm</button>
+                        <button id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+    </div>
+    <div class="footer">FOOTER</div>
 </body>
 </html>
