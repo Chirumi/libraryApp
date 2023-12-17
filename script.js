@@ -41,8 +41,20 @@ function createCard() {
     author.setAttribute("id", `author`)
     const pages = document.createElement("div")
     pages.setAttribute("id", `pages`)
-    const readStatus = document.createElement("div")
+
+
+    const readStatus = document.createElement("button")
     readStatus.setAttribute("id", `readStatus`)
+    readStatus.addEventListener("click", () => {
+        if (myLibrary[lastArrayItem].readStatus == "Unfinished") {
+            myLibrary[lastArrayItem].readStatus = "Finished"
+            readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
+        }
+        else {
+            myLibrary[lastArrayItem].readStatus = "Unfinished"
+            readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
+        }
+    })
 
     const removeBtn = document.createElement("button")
     removeBtn.textContent = "Remove"
@@ -71,7 +83,7 @@ function createCard() {
     title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
     author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
     pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
-    readStatus.textContent = `Read: ${myLibrary[lastArrayItem].readStatus}`
+    readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
 
 }
 
@@ -101,4 +113,3 @@ confirmBtn.addEventListener("click", (e) => {
 
     dialog.close()
 })
-
