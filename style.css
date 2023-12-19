@@ -69,6 +69,7 @@ body {
     border-radius: 20px;
     transition: 0.2s;
     border-style: none;
+    background-color: rgb(238, 238, 238);
 }
 
 #showBtn:hover {
@@ -91,6 +92,7 @@ body {
 }
 
 form {
+    color: #212121;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -143,6 +145,14 @@ input[type="checkbox"] {
     font: 15px;
     padding: 10px 20px;
     border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    transition: 0.3s;
+}
+
+#confirmBtn:hover,
+#cancelBtn:hover {
+    background-color: rgb(221, 221, 221);
+    transition: 0.3s;
 }
 
 .footer {

@@ -8,6 +8,7 @@ const inputTitle = document.getElementById("title")
 const inputAuthor = document.getElementById("author")
 const inputPages = document.getElementById("pages")
 const inputRead = document.getElementById("read")
+const inputReadCheck = document.querySelector("#read").checked
 
 const myLibrary = []
 
@@ -81,7 +82,7 @@ function createCard() {
     title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
     author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
     pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
-    if  (myLibrary[lastArrayItem].readStatus == "on") {
+    if  (myLibrary[lastArrayItem].readStatus == "true") {
         readStatus.textContent = `Read`
     } else {
         readStatus.textContent = `Not read`
@@ -92,12 +93,16 @@ function createCard() {
 showBtn.addEventListener("click", () => {
     dialog.showModal()
     dialog.setAttribute("class", "dialogShow")
+    console.log(inputReadCheck)
 })
 cancelBtn.addEventListener("click", () => {
     dialog.close()
 })
 dialog.addEventListener("click", () => {
     dialog.close()
+    inputTitle.value = ""
+    inputAuthor.value = ""
+    inputPages.value = ""
 })
 div.addEventListener("click", (e) => {
     e.stopPropagation()
@@ -105,14 +110,13 @@ div.addEventListener("click", (e) => {
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault() // Prevent form from sending which reloads the page
 
-    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.value)
+    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputReadCheck)
     addBookToLibrary(newBook)
     createCard()
 
     inputTitle.value = ""
     inputAuthor.value = ""
     inputPages.value = ""
-    inputRead.value= ""
 
     dialog.close()
 })
