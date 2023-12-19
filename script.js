@@ -43,13 +43,13 @@ function createCard() {
     const readStatus = document.createElement("button")
     readStatus.setAttribute("id", `readStatus`)
     readStatus.addEventListener("click", () => {
-        if (myLibrary[lastArrayItem].readStatus == "Not read") {
-            myLibrary[lastArrayItem].readStatus = "Read"
-            readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
+        if (myLibrary[lastArrayItem].readStatus == false) {
+            myLibrary[lastArrayItem].readStatus = true
+            readStatus.textContent = `Read`
         }
         else {
-            myLibrary[lastArrayItem].readStatus = "Not read"
-            readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
+            myLibrary[lastArrayItem].readStatus = false
+            readStatus.textContent = `Not read`
         }
     })
 
