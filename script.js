@@ -97,10 +97,12 @@ cancelBtn.addEventListener("click", () => {
     dialog.close()
 })
 dialog.addEventListener("click", () => {
-    dialog.close()
     inputTitle.value = ""
     inputAuthor.value = ""
     inputPages.value = ""
+    document.getElementById("read").checked = false
+    errorMsg.textContent = ""
+    dialog.close()
 })
 div.addEventListener("click", (e) => {
     e.stopPropagation()
