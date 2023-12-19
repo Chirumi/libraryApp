@@ -7,8 +7,6 @@ const div = document.querySelector("dialog > div")
 const inputTitle = document.getElementById("title")
 const inputAuthor = document.getElementById("author")
 const inputPages = document.getElementById("pages")
-const inputRead = document.getElementById("read")
-const inputReadCheck = document.querySelector("#read").checked
 
 const myLibrary = []
 
@@ -82,7 +80,7 @@ function createCard() {
     title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
     author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
     pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
-    if  (myLibrary[lastArrayItem].readStatus == "true") {
+    if  (myLibrary[lastArrayItem].readStatus == true) {
         readStatus.textContent = `Read`
     } else {
         readStatus.textContent = `Not read`
@@ -93,7 +91,6 @@ function createCard() {
 showBtn.addEventListener("click", () => {
     dialog.showModal()
     dialog.setAttribute("class", "dialogShow")
-    console.log(inputReadCheck)
 })
 cancelBtn.addEventListener("click", () => {
     dialog.close()
@@ -110,7 +107,7 @@ div.addEventListener("click", (e) => {
 confirmBtn.addEventListener("click", (e) => {
     e.preventDefault() // Prevent form from sending which reloads the page
 
-    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputReadCheck)
+    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, document.getElementById("read").checked)
     addBookToLibrary(newBook)
     createCard()
 
