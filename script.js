@@ -1,4 +1,4 @@
-const gridContainer = document.getElementById("gridContainer")
+const flexContainer = document.getElementById("flexContainer")
 const dialog = document.querySelector("dialog")
 const showBtn = document.getElementById("showBtn")
 const confirmBtn = document.getElementById("confirmBtn")
@@ -71,7 +71,7 @@ function createCard() {
     })
 
 
-    gridContainer.append(bookCard)
+    flexContainer.append(bookCard)
     bookCard.append(title)
     bookCard.append(author)
     bookCard.append(pages)
@@ -124,3 +124,13 @@ confirmBtn.addEventListener("click", (e) => {
         dialog.close()
     }
 })
+
+// PLACEHOLDER FOR CARD STYLING
+const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 310, false)
+addBookToLibrary(theHobbit)
+createCard()
+
+
+const ya = new Book("ya", "da", 310, false)
+addBookToLibrary(ya)
+createCard()
