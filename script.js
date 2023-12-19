@@ -125,12 +125,3 @@ confirmBtn.addEventListener("click", (e) => {
     }
 })
 
-// PLACEHOLDER FOR CARD STYLING
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 310, false)
-addBookToLibrary(theHobbit)
-createCard()
-
-
-const ya = new Book("ya", "da", 310, false)
-addBookToLibrary(ya)
-createCard()
