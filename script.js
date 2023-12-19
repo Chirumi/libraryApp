@@ -7,6 +7,7 @@ const div = document.querySelector("dialog > div")
 const inputTitle = document.getElementById("title")
 const inputAuthor = document.getElementById("author")
 const inputPages = document.getElementById("pages")
+const errorMsg = document.querySelector(".errorMsg")
 
 const myLibrary = []
 
@@ -105,15 +106,19 @@ div.addEventListener("click", (e) => {
     e.stopPropagation()
 })
 confirmBtn.addEventListener("click", (e) => {
-    e.preventDefault() // Prevent form from sending which reloads the page
-
-    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, document.getElementById("read").checked)
-    addBookToLibrary(newBook)
-    createCard()
-
-    inputTitle.value = ""
-    inputAuthor.value = ""
-    inputPages.value = ""
-
-    dialog.close()
+    e.preventDefault()
+    if (inputTitle.value == "" || inputAuthor.value == "" || inputPages.value == "") {
+        errorMsg.textContent = "Please enter all the book's information"
+    }
+    else {
+        const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, document.getElementById("read").checked)
+        addBookToLibrary(newBook)
+        createCard()
+        inputTitle.value = ""
+        inputAuthor.value = ""
+        inputPages.value = ""
+        document.getElementById("read").checked = false
+        errorMsg.textContent = ""
+        dialog.close()
+    }
 })

@@ -95,7 +95,7 @@ form {
     color: #212121;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 dialog > div {
@@ -111,7 +111,7 @@ input[type="number"] {
 }
 
 input[type="number"] {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 input:focus {
@@ -153,6 +153,11 @@ input[type="checkbox"] {
 #cancelBtn:hover {
     background-color: rgb(221, 221, 221);
     transition: 0.3s;
+}
+
+.errorMsg{
+    height: 1px;
+    color: red;
 }
 
 .footer {

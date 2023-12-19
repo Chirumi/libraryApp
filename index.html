@@ -24,13 +24,16 @@
         <div id="gridContainer"></div>
         <dialog>
             <div>
-                <form action="">
+                <form>
                     <label for="title"></label>
                     <input type="text" name="title" id="title" placeholder="Title">
+                    
                     <label for="author"></label>
                     <input type="text" name="author" id="author" placeholder="Author">
+
                     <label for="pages"></label>
                     <input type="number" name="pages" id="pages" placeholder="Number of pages">
+
                     <div>
                         <label for="read">Have you read the book?</label>
                         <input type="checkbox" name="readStatus" id="read">
@@ -40,6 +43,7 @@
                         <button id="confirmBtn">Confirm</button>
                         <button id="cancelBtn">Cancel</button>
                     </div>
+                    <div class="errorMsg"></div>
                 </form>
             </div>
         </dialog>
