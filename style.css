@@ -100,7 +100,7 @@ dialog > div {
     padding: 40px 80px;
 }
 
-input{
+input[type="text"]{
     all: unset;
     font-size: 20px;
     height: 40px;

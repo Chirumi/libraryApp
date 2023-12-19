@@ -31,12 +31,9 @@
                     <input type="text" name="author" id="author" placeholder="Author">
                     <label for="pages"></label>
                     <input type="number" name="pages" id="pages" placeholder="Number of pages">
-                    <select name="readStatus" id="read">
-                        <div>Have you finished reading the book?</div>
-                        <option value="default"> </option>
-                        <option value="Unfinished">Unfinished</option>
-                        <option value="Finished">Finished</option>
-                    </select>
+                    <input type="checkbox" name="readStatus" id="read">
+                    <label for="read">Have you read the book?</label>
+
                     <div class="buttons">
                         <button id="confirmBtn">Confirm</button>
                         <button id="cancelBtn">Cancel</button>

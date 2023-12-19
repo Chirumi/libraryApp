@@ -44,12 +44,12 @@ function createCard() {
     const readStatus = document.createElement("button")
     readStatus.setAttribute("id", `readStatus`)
     readStatus.addEventListener("click", () => {
-        if (myLibrary[lastArrayItem].readStatus == "Unfinished") {
-            myLibrary[lastArrayItem].readStatus = "Finished"
+        if (myLibrary[lastArrayItem].readStatus == "Not read") {
+            myLibrary[lastArrayItem].readStatus = "Read"
             readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
         }
         else {
-            myLibrary[lastArrayItem].readStatus = "Unfinished"
+            myLibrary[lastArrayItem].readStatus = "Not read"
             readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
         }
     })
@@ -81,7 +81,11 @@ function createCard() {
     title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
     author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
     pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
-    readStatus.textContent = `${myLibrary[lastArrayItem].readStatus}`
+    if  (myLibrary[lastArrayItem].readStatus == "on") {
+        readStatus.textContent = `Read`
+    } else {
+        readStatus.textContent = `Not read`
+    }
 
 }
 
