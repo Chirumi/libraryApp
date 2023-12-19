@@ -44,13 +44,13 @@ body {
     border-style: none;
     padding: 10px 30px;
     border-radius: 20px;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 .headerRight button:hover {
     background-color: #fff;
     color: #212121;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 .main {
@@ -67,13 +67,13 @@ body {
     height: 100px;
     font-size: 80px;
     border-radius: 20px;
-    transition: 0.4s;
+    transition: 0.2s;
     border-style: none;
 }
 
 #showBtn:hover {
     transform: rotate(90deg) scale(1.5);
-    transition: 0.4s;
+    transition: 0.2s;
 }
 
 .dialogShow {
@@ -100,19 +100,49 @@ dialog > div {
     padding: 40px 80px;
 }
 
-input[type="text"]{
+input[type="text"],
+input[type="number"] {
     all: unset;
     font-size: 20px;
     height: 40px;
     width: 400px;
 }
 
+input[type="number"] {
+    margin-bottom: 15px;
+}
+
 input:focus {
     border-bottom: 1px solid #212121;
 }
 
-select {
-    width: 46px;
+form > div:first-of-type {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+form > div:first-of-type label {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+#confirmBtn,
+#cancelBtn {
+    font: 15px;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
 .footer {
