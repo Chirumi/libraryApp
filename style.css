@@ -222,6 +222,7 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: center;
     background-color: #fafafa;
+    min-height: 48.92px;
 }
 
 a,
