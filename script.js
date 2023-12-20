@@ -8,6 +8,7 @@ const inputTitle = document.getElementById("title")
 const inputAuthor = document.getElementById("author")
 const inputPages = document.getElementById("pages")
 const errorMsg = document.querySelector(".errorMsg")
+const main = document.querySelector(".main")
 
 const myLibrary = []
 
@@ -59,17 +60,18 @@ function createCard() {
     removeBtn.textContent = "Remove"
     removeBtn.setAttribute("class", `cardBtn`)
     removeBtn.addEventListener("click", () => {
-            bookCard.remove()
-
-            cards = document.querySelectorAll("#bookCard") // Selects divs with id bookCard
-            cards.forEach((e) => { // Only decrement dataset values that are more than the index position of the bookCard being removed from the array
-                if (e.dataset.book > bookCard.dataset.book) {
-                    e.dataset.book = e.dataset.book - 1
-                }
-            })
-
-            myLibrary.splice(bookCard.dataset.book, 1)
-            
+        bookCard.remove()
+        cards = document.querySelectorAll("#bookCard") // Selects divs with id bookCard
+        cards.forEach((e) => { // Only decrement dataset values that are more than the index position of the bookCard being removed from the array
+            if (e.dataset.book > bookCard.dataset.book) {
+                e.dataset.book = e.dataset.book - 1
+            }
+        })
+        myLibrary.splice(bookCard.dataset.book, 1)
+        
+        if (myLibrary.length == 0) {
+            main.style.justifyContent = "center"
+        }
     })
 
 
@@ -126,6 +128,7 @@ confirmBtn.addEventListener("click", (e) => {
         inputPages.value = ""
         document.getElementById("read").checked = false
         errorMsg.textContent = ""
+        main.style.justifyContent = "unset"
         dialog.close()
     }
 })
