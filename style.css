@@ -103,6 +103,19 @@ body {
     gap: 15px;
     height: 300px;
     width: 450px;
+    padding: 10px 20px;
+}
+
+.cardDiv {
+    background-color: #212121;
+}
+
+.cardBtn {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    padding: 10px 30px;
+    border-radius: 30px;
 }
 
 form {

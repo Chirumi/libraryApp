@@ -33,7 +33,7 @@ function createCard() {
     bookCard.setAttribute("id", `bookCard`)
     bookCard.setAttribute("data-book", `${lastArrayItem}`) // Gives bookCard unique number
 
-    const title = document.createElement("div")
+    const title = document.createElement("h2")
     title.setAttribute("id", `title`)
     const author = document.createElement("div")
     author.setAttribute("id", `author`)
@@ -43,6 +43,7 @@ function createCard() {
 
     const readStatus = document.createElement("button")
     readStatus.setAttribute("id", `readStatus`)
+    readStatus.setAttribute("class", `cardBtn`)
     readStatus.addEventListener("click", () => {
         if (myLibrary[lastArrayItem].readStatus == false) {
             myLibrary[lastArrayItem].readStatus = true
@@ -56,6 +57,7 @@ function createCard() {
 
     const removeBtn = document.createElement("button")
     removeBtn.textContent = "Remove"
+    removeBtn.setAttribute("class", `cardBtn`)
     removeBtn.addEventListener("click", () => {
             bookCard.remove()
 
@@ -78,9 +80,12 @@ function createCard() {
     bookCard.append(readStatus)
     bookCard.append(removeBtn)
 
-    title.textContent = `Title: ${myLibrary[lastArrayItem].title}`
-    author.textContent = `Author: ${myLibrary[lastArrayItem].author}`
-    pages.textContent = `Pages: ${myLibrary[lastArrayItem].pages}`
+    title.textContent = `${myLibrary[lastArrayItem].title}`
+    title.style.fontSize = "40px"
+    author.textContent = `by ${myLibrary[lastArrayItem].author}`
+    author.style.fontSize = "15px"
+    pages.textContent = `${myLibrary[lastArrayItem].pages} pages`
+    readStatus.style.marginTop = "60px" 
     if  (myLibrary[lastArrayItem].readStatus == true) {
         readStatus.textContent = `Read`
     } else {
@@ -124,4 +129,9 @@ confirmBtn.addEventListener("click", (e) => {
         dialog.close()
     }
 })
+
+// DIV STYLING PLACEHOLDER
+const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 290, false)
+addBookToLibrary(theHobbit)
+createCard()
 
