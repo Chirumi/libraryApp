@@ -130,8 +130,3 @@ confirmBtn.addEventListener("click", (e) => {
     }
 })
 
-// DIV STYLING PLACEHOLDER
-const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 290, false)
-addBookToLibrary(theHobbit)
-createCard()
-
