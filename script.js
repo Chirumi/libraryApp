@@ -81,11 +81,11 @@ function createCard() {
     bookCard.append(removeBtn)
 
     title.textContent = `${myLibrary[lastArrayItem].title}`
-    title.style.fontSize = "40px"
+    title.style.fontSize = "20px"
     author.textContent = `by ${myLibrary[lastArrayItem].author}`
     author.style.fontSize = "15px"
     pages.textContent = `${myLibrary[lastArrayItem].pages} pages`
-    readStatus.style.marginTop = "60px" 
+    readStatus.style.marginTop = "40px" 
     if  (myLibrary[lastArrayItem].readStatus == true) {
         readStatus.textContent = `Read`
     } else {

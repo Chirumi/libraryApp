@@ -63,9 +63,9 @@ body {
 }
 
 #showBtn {
-    width: 100px;
-    height: 100px;
-    font-size: 80px;
+    width: 80px;
+    height: 80px;
+    font-size: 70px;
     border-radius: 20px;
     transition: 0.2s;
     border-style: none;
@@ -73,7 +73,7 @@ body {
 }
 
 #showBtn:hover {
-    transform: rotate(90deg) scale(1.5);
+    transform: rotate(90deg) scale(1.35);
     transition: 0.2s;
 }
 
@@ -101,9 +101,12 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 5px rgb(155, 155, 155);
     gap: 15px;
-    height: 300px;
+    height: 250px;
     width: 450px;
-    padding: 10px 20px;
+    padding: 15px 20px;
+}
+
+#bookCard {
 }
 
 .cardDiv {
@@ -112,10 +115,20 @@ body {
 
 .cardBtn {
     display: flex;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
     justify-content: center;
     padding: 10px 30px;
-    border-radius: 30px;
+    margin-right: 35%;
+    margin-left: 35%;
+    border-radius: 10px;
+    background-color: rgb(238, 238, 238);
+    transition: 0.1s;
+}
+
+.cardBtn:hover {
+    background-color: rgb(221, 221, 221);
+    transition: 0.1s;
 }
 
 form {
@@ -135,6 +148,15 @@ input[type="number"] {
     font-size: 20px;
     height: 40px;
     width: 400px;
+}
+
+#title,
+#author,
+#pages {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
 }
 
 input[type="number"] {
@@ -189,5 +211,19 @@ input[type="checkbox"] {
 
 .footer {
     grid-area: footer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
     background-color: #fafafa;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: #414141;
+}
+
+a:hover {
+    text-decoration: underline;
 }
