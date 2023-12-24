@@ -65,10 +65,28 @@ function createCard() {
         cards.forEach((e) => { // Only decrement dataset values that are more than the index position of the bookCard being removed from the array
             if (e.dataset.book > bookCard.dataset.book) {
                 e.dataset.book = e.dataset.book - 1
+
+                //REMOVE BUTTON AND MAKE NEW EVENT LISTENERS THAT ARE AFTER THE REMOVED CARD
+                const eBtn = e.querySelector("#readStatus")
+                const eBtnNew = eBtn.cloneNode(true) //SELECTS ALL readStatus BUTTONS AFTER THE REMOVED CARD
+                eBtn.parentNode.replaceChild(eBtnNew, eBtn)
+                
+                //APPLY NEW EVENT LISTENER THAT CHANGES READ STATUS OF THE RIGHT OBJECT
+                eBtnNew.addEventListener("click", () => {
+                    if (myLibrary[eBtnNew.parentNode.dataset.book].readStatus == false) {
+                        myLibrary[eBtnNew.parentNode.dataset.book].readStatus = true
+                        eBtnNew.textContent = `Read`
+                    }
+                    else {
+                        myLibrary[eBtnNew.parentNode.dataset.book].readStatus = false
+                        eBtnNew.textContent = `Not read`
+                    }
+                })
             }
         })
-        myLibrary.splice(bookCard.dataset.book, 1)
         
+        myLibrary.splice(bookCard.dataset.book, 1)
+   
         if (myLibrary.length == 0) {
             main.style.justifyContent = "center"
         }
