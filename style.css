@@ -24,8 +24,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding: 10px 85px;
     grid-area: header;
     background-color: #212121;
     color: #fff;
